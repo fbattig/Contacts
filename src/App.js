@@ -26,7 +26,9 @@ class App extends Component {
 
         ContactsAPI.remove(contact);
       }
-
+navigate =(screen) => {
+    this.setState({screen:'create'})
+};
 
     render() {
         return (
@@ -34,7 +36,9 @@ class App extends Component {
                 {this.state.screen === 'list' && (
                 <ListContacts 
                 onDeleteContact={this.removeContacts}
-                contacts={this.state.contacts} />
+                contacts={this.state.contacts} 
+                onNavigate={this.navigate}
+                />
                 )}
                 {this.state.screen ==='create' && (
                     <CreateContact />

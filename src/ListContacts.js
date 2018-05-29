@@ -8,7 +8,8 @@ class ListContacts extends Component {
  
   static propTypes = {
     contacts: PropTypes.array.isRequired,
-    onDeleteContact: PropTypes.func.isRequired
+    onDeleteContact: PropTypes.func.isRequired,
+    onNavigate: PropTypes.func.isRequired
   }
 
 
@@ -52,6 +53,11 @@ class ListContacts extends Component {
         value={this.query}
         onChange={(event)=> this.onChangeHandler(event.target.value)}
         />
+        <a 
+        href= '#create'
+        onClick = {this.props.onNavigate}
+        className='add-contact'
+        >Add Contact</a>
        </div>
 
         {showingContacts.length !== contacts.length && (
